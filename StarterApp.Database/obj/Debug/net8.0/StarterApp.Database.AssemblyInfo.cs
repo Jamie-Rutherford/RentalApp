@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StarterApp.Database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ba8297286b3539c5d28f19311212e9c4b7e64ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ba7dd11861d5c6d2708a2d4be9c11c25c9656b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("StarterApp.Database")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StarterApp.Database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -185,6 +185,22 @@
         <member name="P:StarterApp.ViewModels.BaseViewModel.ClearErrorCommandCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:StarterApp.ViewModels.BaseViewModel.ClearErrorCommand"/>.</summary>
         </member>
+        <member name="T:StarterApp.ViewModels.ItemsListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:StarterApp.ViewModels.ItemsListViewModel.Items">
+            <inheritdoc cref="F:StarterApp.ViewModels.ItemsListViewModel._items"/>
+        </member>
+        <member name="P:StarterApp.ViewModels.ItemsListViewModel.IsLoading">
+            <inheritdoc cref="F:StarterApp.ViewModels.ItemsListViewModel._isLoading"/>
+        </member>
+        <member name="F:StarterApp.ViewModels.ItemsListViewModel.loadItemsCommand">
+            <summary>The backing field for <see cref="P:StarterApp.ViewModels.ItemsListViewModel.LoadItemsCommand"/>.</summary>
+        </member>
+        <member name="P:StarterApp.ViewModels.ItemsListViewModel.LoadItemsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:StarterApp.ViewModels.ItemsListViewModel.LoadItemsAsync"/>.</summary>
+        </member>
         <member name="T:StarterApp.ViewModels.LoginViewModel">
             @brief View model for the login page that handles user authentication
             @details Manages login form data, validation, and authentication process
@@ -1285,6 +1301,12 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.HasError">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "HasError" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Items">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Items" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsLoading">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsLoading" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
         </member>
@@ -1344,6 +1366,12 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.HasError">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "HasError" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Items">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Items" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsLoading">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsLoading" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
