@@ -6,6 +6,7 @@
     xmlns:views="clr-namespace:StarterApp.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" Route="login" />
+    <ShellContent Title="Items" ContentTemplate="{DataTemplate views:ItemsListPage}" Route="items" />
 
 </Shell>
