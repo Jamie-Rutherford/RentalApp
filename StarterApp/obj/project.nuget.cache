@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jecg8I4jrh8=",
+  "dgSpecHash": "IZ/Ene35x68=",
   "success": true,
-  "projectFilePath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp/StarterApp.csproj",
+  "projectFilePath": "/Users/999jammy/Documents/RentalApp/StarterApp/StarterApp.csproj",
   "expectedPackageFiles": [
     "/Users/999jammy/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/999jammy/.nuget/packages/communitytoolkit.mvvm/8.4.0/communitytoolkit.mvvm.8.4.0.nupkg.sha512",

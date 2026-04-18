@@ -23243,11 +23243,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp/StarterApp.csproj",
+      "projectUniqueName": "/Users/999jammy/Documents/RentalApp/StarterApp/StarterApp.csproj",
       "projectName": "StarterApp",
-      "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp/StarterApp.csproj",
+      "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp/StarterApp.csproj",
       "packagesPath": "/Users/999jammy/.nuget/packages/",
-      "outputPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp/obj/",
+      "outputPath": "/Users/999jammy/Documents/RentalApp/StarterApp/obj/",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [
@@ -23265,16 +23265,16 @@
         "net9.0-android35.0": {
           "targetAlias": "net9.0-android",
           "projectReferences": {
-            "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj": {
-              "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj"
+            "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj": {
+              "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj"
             }
           }
         },
         "net9.0-maccatalyst26.0": {
           "targetAlias": "net9.0-maccatalyst",
           "projectReferences": {
-            "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj": {
-              "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj"
+            "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj": {
+              "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj"
             }
           }
         }

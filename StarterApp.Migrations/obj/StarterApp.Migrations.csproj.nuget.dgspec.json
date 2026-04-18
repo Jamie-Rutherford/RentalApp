@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Migrations/StarterApp.Migrations.csproj": {}
+    "/Users/999jammy/Documents/RentalApp/StarterApp.Migrations/StarterApp.Migrations.csproj": {}
   },
   "projects": {
-    "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj": {
+    "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj",
+        "projectUniqueName": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj",
         "projectName": "StarterApp.Database",
-        "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj",
+        "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj",
         "packagesPath": "/Users/999jammy/.nuget/packages/",
-        "outputPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/obj/",
+        "outputPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/999jammy/.nuget/NuGet/NuGet.Config"
@@ -92,14 +92,14 @@
         }
       }
     },
-    "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Migrations/StarterApp.Migrations.csproj": {
+    "/Users/999jammy/Documents/RentalApp/StarterApp.Migrations/StarterApp.Migrations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Migrations/StarterApp.Migrations.csproj",
+        "projectUniqueName": "/Users/999jammy/Documents/RentalApp/StarterApp.Migrations/StarterApp.Migrations.csproj",
         "projectName": "StarterApp.Migrations",
-        "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Migrations/StarterApp.Migrations.csproj",
+        "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Migrations/StarterApp.Migrations.csproj",
         "packagesPath": "/Users/999jammy/.nuget/packages/",
-        "outputPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Migrations/obj/",
+        "outputPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Migrations/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/999jammy/.nuget/NuGet/NuGet.Config"
@@ -115,8 +115,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj": {
-                "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj"
+              "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj": {
+                "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj"
               }
             }
           }

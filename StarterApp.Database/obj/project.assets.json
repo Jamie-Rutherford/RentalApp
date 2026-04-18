@@ -3236,11 +3236,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj",
+      "projectUniqueName": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj",
       "projectName": "StarterApp.Database",
-      "projectPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/StarterApp.Database.csproj",
+      "projectPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/StarterApp.Database.csproj",
       "packagesPath": "/Users/999jammy/.nuget/packages/",
-      "outputPath": "/Users/999jammy/Documents/SET09102/code/StarterApp/StarterApp.Database/obj/",
+      "outputPath": "/Users/999jammy/Documents/RentalApp/StarterApp.Database/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/999jammy/.nuget/NuGet/NuGet.Config"
