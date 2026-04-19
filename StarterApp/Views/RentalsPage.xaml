@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:StarterApp.ViewModels"
+             xmlns:models="clr-namespace:StarterApp.Database.Models;assembly=StarterApp.Database"
+             x:DataType="vm:RentalsViewModel"
+             x:Class="StarterApp.Views.RentalsPage"
+             x:Name="page"
+             Title="Rentals">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Incoming Requests"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <CollectionView ItemsSource="{Binding IncomingRentals}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Rental">
+                        <Frame Margin="0,5" Padding="10">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Item.Title}"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Borrower.FirstName}"/>
+                                <Label Text="{Binding Status}"
+                                       TextColor="Orange"/>
+                                <Label Text="{Binding TotalPrice, StringFormat='Total: £{0:F2}'}"/>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Button Text="Approve"
+                                            BackgroundColor="Green"
+                                            TextColor="White"
+                                            Command="{Binding Source={x:Reference page}, Path=BindingContext.ApproveRentalCommand}"
+                                            CommandParameter="{Binding Id}"/>
+                                    <Button Text="Reject"
+                                            BackgroundColor="Red"
+                                            TextColor="White"
+                                            Command="{Binding Source={x:Reference page}, Path=BindingContext.RejectRentalCommand}"
+                                            CommandParameter="{Binding Id}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="My Rental Requests"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <CollectionView ItemsSource="{Binding OutgoingRentals}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Rental">
+                        <Frame Margin="0,5" Padding="10">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Item.Title}"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding StartDate, StringFormat='From: {0:dd/MM/yyyy}'}"/>
+                                <Label Text="{Binding EndDate, StringFormat='To: {0:dd/MM/yyyy}'}"/>
+                                <Label Text="{Binding Status}"
+                                       TextColor="Blue"/>
+                                <Label Text="{Binding TotalPrice, StringFormat='Total: £{0:F2}'}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
