@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
 using StarterApp.ViewModels;
 using StarterApp.Database.Data;
+using StarterApp.Database.Data.Repositories;
 using StarterApp.Views;
 using System.Diagnostics;
 using StarterApp.Services;
@@ -21,6 +22,9 @@ public static class MauiProgram
             });
 
         builder.Services.AddDbContext<AppDbContext>();
+        builder.Services.AddTransient<IItemRepository, ItemRepository>();
+        builder.Services.AddTransient<IRentalRepository, RentalRepository>();
+        builder.Services.AddTransient<IRentalService, RentalService>();
 
         builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
         builder.Services.AddSingleton<INavigationService, NavigationService>();
