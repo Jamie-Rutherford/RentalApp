@@ -28,7 +28,7 @@ jobs:
       run: dotnet build StarterApp.Database/StarterApp.Database.csproj --no-restore
 
     - name: Restore Android app
-      run: dotnet restore StarterApp/StarterApp.csproj -p:TargetFrameworks=net9.0-android
+      run: dotnet restore StarterApp/StarterApp.csproj -p:TargetFrameworks=net9.0-android -p:RuntimeIdentifier=android-arm64
 
     - name: Build Android app
-      run: dotnet build StarterApp/StarterApp.csproj -f net9.0-android --no-restore
+      run: dotnet build StarterApp/StarterApp.csproj -f net9.0-android -p:TargetFrameworks=net9.0-android --no-restore
