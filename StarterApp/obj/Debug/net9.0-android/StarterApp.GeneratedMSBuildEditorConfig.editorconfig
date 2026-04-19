@@ -61,6 +61,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = StarterApp.Views.AboutPage
 build_metadata.AdditionalFiles.TargetPath = Views/AboutPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/AboutPage.xaml
 
+[/Users/999jammy/Documents/RentalApp/StarterApp/Views/CreateItemPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = StarterApp.Views.CreateItemPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/CreateItemPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/CreateItemPage.xaml
+
 [/Users/999jammy/Documents/RentalApp/StarterApp/Views/ItemsListPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = StarterApp.Views.ItemsListPage.xaml

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:StarterApp.ViewModels"
+             x:DataType="vm:CreateItemViewModel"
+             x:Class="StarterApp.Views.CreateItemPage"
+             Title="List an Item">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="List your item for rent" 
+                   FontSize="22" 
+                   FontAttributes="Bold"/>
+
+            <Label Text="Title *" FontSize="14"/>
+            <Entry Placeholder="e.g. Power Drill"
+                   Text="{Binding Title}"/>
+
+            <Label Text="Description *" FontSize="14"/>
+            <Editor Placeholder="Describe your item..."
+                    Text="{Binding Description}"
+                    HeightRequest="100"/>
+
+            <Label Text="Daily Rate (£) *" FontSize="14"/>
+            <Entry Placeholder="e.g. 10.00"
+                   Text="{Binding DailyRate}"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Category" FontSize="14"/>
+            <Entry Placeholder="e.g. Tools, Camping, Games"
+                   Text="{Binding Category}"/>
+
+            <Label Text="Location" FontSize="14"/>
+            <Entry Placeholder="e.g. Edinburgh"
+                   Text="{Binding Location}"/>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="Red"/>
+
+            <Button Text="List Item"
+                    Command="{Binding SaveItemCommand}"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
