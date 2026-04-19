@@ -1,0 +1,14 @@
+# Build results
+bin/
+obj/
+*.user
+
+# .NET
+*.dll
+*.pdb
+
+# VS Code
+.vscode/
+
+# Secrets
+appsettings.json
