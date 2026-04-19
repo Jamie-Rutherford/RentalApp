@@ -18,14 +18,17 @@ jobs:
       with:
         dotnet-version: '9.0.x'
 
-    - name: Install MAUI workloads
+    - name: Install MAUI Android workload
       run: dotnet workload install maui-android
 
     - name: Restore dependencies
-      run: dotnet restore StarterApp.sln
+      run: dotnet restore StarterApp.Database/StarterApp.Database.csproj
 
     - name: Build Database project
-      run: dotnet build StarterApp.Database/StarterApp.Database.csproj
+      run: dotnet build StarterApp.Database/StarterApp.Database.csproj --no-restore
+
+    - name: Restore Android app
+      run: dotnet restore StarterApp/StarterApp.csproj
 
     - name: Build Android app
-      run: dotnet build StarterApp/StarterApp.csproj -f net9.0-android
+      run: dotnet build StarterApp/StarterApp.csproj -f net9.0-android --no-restore
