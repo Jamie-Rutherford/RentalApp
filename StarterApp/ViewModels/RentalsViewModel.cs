@@ -27,16 +27,35 @@ public partial class RentalsViewModel : ObservableObject
         _rentalService = rentalService;
     }
 
+    [ObservableProperty]
+    private string _errorMessage = string.Empty;
+
+    [ObservableProperty]
+    private bool _hasError;
+
     [RelayCommand]
     public async Task LoadRentalsAsync()
     {
+        HasError = false;
+        ErrorMessage = string.Empty;
         IsLoading = true;
-        var all = await _rentalRepository.GetAllAsync();
-        IncomingRentals = new ObservableCollection<Rental>(
-            all.Where(r => r.Item?.OwnerId == 1));
-        var outgoing = await _rentalRepository.GetByBorrowerIdAsync(1);
-        OutgoingRentals = new ObservableCollection<Rental>(outgoing);
-        IsLoading = false;
+        try
+        {
+            var all = await _rentalRepository.GetAllAsync();
+            IncomingRentals = new ObservableCollection<Rental>(
+                all.Where(r => r.Item?.OwnerId == 1));
+            var outgoing = await _rentalRepository.GetByBorrowerIdAsync(1);
+            OutgoingRentals = new ObservableCollection<Rental>(outgoing);
+        }
+        catch (Exception ex)
+        {
+            HasError = true;
+            ErrorMessage = $"Failed to load rentals: {ex.Message}";
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 
     [RelayCommand]

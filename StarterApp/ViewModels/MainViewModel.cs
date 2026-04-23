@@ -123,6 +123,18 @@ public partial class MainViewModel : BaseViewModel
         await _navigationService.NavigateToAsync("UserListPage");
     }
 
+    [RelayCommand]
+    private async Task NavigateToItemsAsync()
+    {
+        await Shell.Current.GoToAsync("itemslist");
+    }
+
+    [RelayCommand]
+    private async Task NavigateToRentalsAsync()
+    {
+        await Shell.Current.GoToAsync("rentals");
+    }
+
     /// @brief Refreshes the dashboard data
     /// @details Relay command that reloads user data and simulates a refresh operation
     /// @return A task representing the asynchronous refresh operation

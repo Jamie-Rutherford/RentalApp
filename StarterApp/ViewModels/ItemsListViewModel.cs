@@ -21,12 +21,31 @@ public partial class ItemsListViewModel : ObservableObject
         _itemRepository = itemRepository;
     }
 
+    [ObservableProperty]
+    private string _errorMessage = string.Empty;
+
+    [ObservableProperty]
+    private bool _hasError;
+
     [RelayCommand]
     public async Task LoadItemsAsync()
     {
+        HasError = false;
+        ErrorMessage = string.Empty;
         IsLoading = true;
-        var items = await _itemRepository.GetAllAsync();
-        Items = new ObservableCollection<Item>(items);
-        IsLoading = false;
+        try
+        {
+            var items = await _itemRepository.GetAllAsync();
+            Items = new ObservableCollection<Item>(items);
+        }
+        catch (Exception ex)
+        {
+            HasError = true;
+            ErrorMessage = $"Failed to load items: {ex.Message}";
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
 }
