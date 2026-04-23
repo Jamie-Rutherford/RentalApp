@@ -4,6 +4,7 @@ using StarterApp.Database.Data.Repositories;
 using StarterApp.Database.Models;
 using StarterApp.Services;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace StarterApp.ViewModels;
 
@@ -51,6 +52,7 @@ public partial class RentalsViewModel : ObservableObject
         {
             HasError = true;
             ErrorMessage = $"Failed to load rentals: {ex.Message}";
+            Debug.WriteLine($"[RentalsViewModel] LoadRentalsAsync error: {ex}");
         }
         finally
         {

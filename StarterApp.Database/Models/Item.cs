@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace StarterApp.Database.Models;
 
+[Table("items")]
 public class Item
 {
     public int Id { get; set; }

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using StarterApp.Database.Data.Repositories;
 using StarterApp.Database.Models;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace StarterApp.ViewModels;
 
@@ -42,6 +43,7 @@ public partial class ItemsListViewModel : ObservableObject
         {
             HasError = true;
             ErrorMessage = $"Failed to load items: {ex.Message}";
+            Debug.WriteLine($"[ItemsListViewModel] LoadItemsAsync error: {ex}");
         }
         finally
         {

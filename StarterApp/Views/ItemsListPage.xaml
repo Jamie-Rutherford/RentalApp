@@ -7,14 +7,20 @@
              x:Class="StarterApp.Views.ItemsListPage"
              Title="Available Items">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*">
 
         <ActivityIndicator Grid.Row="0"
                            IsRunning="{Binding IsLoading}"
                            IsVisible="{Binding IsLoading}"
                            HorizontalOptions="Center"/>
 
-        <CollectionView Grid.Row="1"
+        <Label Grid.Row="1"
+               Text="{Binding ErrorMessage}"
+               TextColor="Red"
+               Margin="10,5"
+               IsVisible="{Binding HasError}" />
+
+        <CollectionView Grid.Row="2"
                         ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Item">

@@ -15,9 +15,11 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var a = Assembly.GetExecutingAssembly();
-        // var resources = a.GetManifestResourceNames();
-        using var stream = a.GetManifestResourceStream("StarterApp.Database.appsettings.json");
+        var a = typeof(AppDbContext).Assembly;
+        using var stream = a.GetManifestResourceStream("StarterApp.Database.appsettings.json")
+            ?? throw new InvalidOperationException(
+                $"Embedded resource 'StarterApp.Database.appsettings.json' not found in {a.FullName}. " +
+                $"Available: {string.Join(", ", a.GetManifestResourceNames())}");
 
         var config = new ConfigurationBuilder()
             .AddJsonStream(stream)
@@ -69,6 +71,29 @@ public class AppDbContext : DbContext
             entity.HasOne(ur => ur.Role)
                   .WithMany(r => r.UserRoles)
                   .HasForeignKey(ur => ur.RoleId);
+        });
+
+        // Configure Item entity
+        modelBuilder.Entity<Item>(entity =>
+        {
+            entity.HasOne(i => i.Owner)
+                  .WithMany()
+                  .HasForeignKey(i => i.OwnerId)
+                  .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // Configure Rental entity
+        modelBuilder.Entity<Rental>(entity =>
+        {
+            entity.HasOne(r => r.Item)
+                  .WithMany()
+                  .HasForeignKey(r => r.ItemId)
+                  .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(r => r.Borrower)
+                  .WithMany()
+                  .HasForeignKey(r => r.BorrowerId)
+                  .OnDelete(DeleteBehavior.Restrict);
         });
     }
 
