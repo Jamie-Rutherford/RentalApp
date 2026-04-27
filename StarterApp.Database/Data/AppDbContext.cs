@@ -15,19 +15,18 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var a = typeof(AppDbContext).Assembly;
-        using var stream = a.GetManifestResourceStream("StarterApp.Database.appsettings.json")
-            ?? throw new InvalidOperationException(
-                $"Embedded resource 'StarterApp.Database.appsettings.json' not found in {a.FullName}. " +
-                $"Available: {string.Join(", ", a.GetManifestResourceNames())}");
-
-        var config = new ConfigurationBuilder()
-            .AddJsonStream(stream)
-            .Build();
-
-        optionsBuilder.UseNpgsql(
-            config.GetConnectionString("DevelopmentConnection")
-        );
+        if (!optionsBuilder.IsConfigured)
+        {
+            var a = Assembly.GetExecutingAssembly();
+            using var stream = a.GetManifestResourceStream("StarterApp.Database.appsettings.json")
+                ?? throw new InvalidOperationException("Embedded resource 'StarterApp.Database.appsettings.json' not found.");
+            var config = new ConfigurationBuilder()
+                .AddJsonStream(stream)
+                .Build();
+            optionsBuilder.UseNpgsql(
+                config.GetConnectionString("DevelopmentConnection")
+            );
+        }
     }
 
     public DbSet<Role> Roles { get; set; }
