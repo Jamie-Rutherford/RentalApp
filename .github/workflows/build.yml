@@ -24,5 +24,8 @@ jobs:
     - name: Build Database project
       run: dotnet build StarterApp.Database/StarterApp.Database.csproj -f net8.0
 
+    - name: Run Tests
+      run: dotnet test StarterApp.Test/StarterApp.Test.csproj --verbosity normal
+
     - name: Build Android app
       run: dotnet build StarterApp/StarterApp.csproj -f net9.0-android
