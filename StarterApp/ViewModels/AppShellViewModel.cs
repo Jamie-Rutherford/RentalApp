@@ -30,7 +30,7 @@ namespace StarterApp.ViewModels
         /// @details Sets the title to "StarterApp"
         public AppShellViewModel()
         {
-            Title = "StarterApp";
+            Title = "RentalApp";
         }
 
         /// @brief Initializes a new instance of the AppShellViewModel class
@@ -42,7 +42,7 @@ namespace StarterApp.ViewModels
             _authService = authService;
             _navigationService = navigationService;
             _authService.AuthenticationStateChanged += OnAuthenticationStateChanged;
-            Title = "StarterApp";
+            Title = "RentalApp";
         }
 
         /// @brief Determines if guest actions can be executed
