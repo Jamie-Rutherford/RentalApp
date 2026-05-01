@@ -35,7 +35,6 @@ public partial class CreateItemViewModel : ObservableObject
     [RelayCommand]
     public async Task SaveItemAsync()
     {
-        // Basic validation
         if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Description))
         {
             ErrorMessage = "Please fill in all required fields.";
@@ -48,17 +47,25 @@ public partial class CreateItemViewModel : ObservableObject
             return;
         }
 
-        var item = new Item
+        try
         {
-            Title = Title,
-            Description = Description,
-            DailyRate = DailyRate,
-            Category = Category,
-            Location = Location,
-            OwnerId = 1 // We'll link to real logged-in user later
-        };
+            var item = new Item
+            {
+                Title = Title,
+                Description = Description,
+                DailyRate = DailyRate,
+                Category = Category,
+                Location = Location,
+                OwnerId = 1
+            };
 
-        await _itemRepository.CreateAsync(item);
-        await Shell.Current.GoToAsync("..");
+            await _itemRepository.CreateAsync(item);
+            await Shell.Current.GoToAsync("..");
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"SaveItemAsync error: {ex}");
+            ErrorMessage = "Failed to save item. Please try again.";
+        }
     }
 }

@@ -7,6 +7,10 @@
              x:Class="StarterApp.Views.ItemsListPage"
              Title="Available Items">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Command="{Binding NavigateToCreateItemCommand}" />
+    </ContentPage.ToolbarItems>
+
     <Grid RowDefinitions="Auto,Auto,*">
 
         <ActivityIndicator Grid.Row="0"

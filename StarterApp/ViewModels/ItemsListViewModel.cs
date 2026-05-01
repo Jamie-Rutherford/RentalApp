@@ -50,4 +50,10 @@ public partial class ItemsListViewModel : ObservableObject
             IsLoading = false;
         }
     }
+
+    [RelayCommand]
+    public async Task NavigateToCreateItem()
+    {
+        await Shell.Current.GoToAsync("createitem");
+    }
 }
