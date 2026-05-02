@@ -56,4 +56,16 @@ public partial class ItemsListViewModel : ObservableObject
     {
         await Shell.Current.GoToAsync("createitem");
     }
+
+    [RelayCommand]
+    public async Task RequestRental(Item? item)
+    {
+        if (item == null) return;
+        var parameters = new Dictionary<string, object>
+        {
+            { "itemId", item.Id },
+            { "itemTitle", item.Title }
+        };
+        await Shell.Current.GoToAsync("requestrental", parameters);
+    }
 }

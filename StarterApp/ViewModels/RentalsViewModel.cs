@@ -44,7 +44,7 @@ public partial class RentalsViewModel : ObservableObject
         {
             var all = await _rentalRepository.GetAllAsync();
             IncomingRentals = new ObservableCollection<Rental>(
-                all.Where(r => r.Item?.OwnerId == 1));
+                all.Where(r => r.Item?.OwnerId == 1 && r.Status == "Requested"));
             var outgoing = await _rentalRepository.GetByBorrowerIdAsync(1);
             OutgoingRentals = new ObservableCollection<Rental>(outgoing);
         }

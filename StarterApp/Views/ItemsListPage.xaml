@@ -29,6 +29,9 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Item">
                     <Frame Margin="10,5" Padding="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnItemTapped" />
+                        </Frame.GestureRecognizers>
                         <VerticalStackLayout>
                             <Label Text="{Binding Title}"
                                    FontSize="18"
