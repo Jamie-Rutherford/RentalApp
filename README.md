@@ -1,91 +1,79 @@
----
-title: "StarterApp readme"
-parent: StarterApp
-grand_parent: C# practice
-nav_order: 5
-mermaid: true
----
+# RentalApp - Peer-to-Peer Rental Marketplace
 
-# StarterApp
+A .NET MAUI mobile application for peer-to-peer item rental, built for SET09102 Software Engineering coursework.
 
-The purpose of this app is to act as a starting point for further development. It provides some
-basic features including:
+## Features
 
-* Database integration and migrations
-* Role-based security
-* Local authentication
-* Example navigation
+- User authentication (login and registration)
+- Browse available items for rent
+- Create item listings with title, description, daily rate, category and location
+- Request rentals with date selection
+- Approve or reject incoming rental requests
+- View outgoing rental requests and their status
+- Rental workflow: Requested → Approved/Rejected
+- Double-booking prevention
+- Automated price calculation based on daily rate
 
-This version of the app uses PostgreSQL for data storage and Entity Framework Core for object-relational mapping
-and migrations.
+## Tech Stack
 
-To fully understand how it works, you should follow an appropriate set of tutorials such as 
-[this one](https://edinburgh-napier.github.io/SET09102/tutorials/csharp/) which covers all of the main
-concepts and techniques used here. However, if you want to jump straight in and work out any problems
-as you go along, that will also work. The code uses structured comments for use with the 
-[Doxygen](https://www.doxygen.nl/) documentation generator tool. 
+- .NET 9.0 / .NET MAUI
+- PostgreSQL 16 (via Docker)
+- Entity Framework Core
+- xUnit + Moq (testing)
+- GitHub Actions (CI/CD)
 
-You can use any development environment with this project including
+## Prerequisites
 
-* [Rider](https://www.jetbrains.com/rider/)
-* [Visual Studio](https://visualstudio.microsoft.com/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+- .NET 9.0 SDK
+- Docker Desktop
+- Android Emulator (via Android Studio)
 
-The instructions assume you will be using VSCode since that is a lowest-common-denominator choice.
+## Getting Started
 
-## Compatibility
+### 1. Clone the repository
+```bash
+git clone https://github.com/Jamie-Rutherford/RentalApp.git
+cd RentalApp
+```
 
-This app is built using the following tool versions.
+### 2. Start the database
+```bash
+docker compose up -d
+```
 
-| Name                                                                                      | Version     |
-|-------------------------------------------------------------------------------------------|-------------|
-| [.NET](https://dotnet.microsoft.com/en-us/)                                               | 8.0 / 9.0   |
-| [PostgreSQL Docker image](https://hub.docker.com/_/postgres)                              | 16          |
+### 3. Configure the connection string
+Copy `StarterApp.Database/appsettings.json.template` to `StarterApp.Database/appsettings.json` and update:
+```json
+{
+  "ConnectionStrings": {
+    "DevelopmentConnection": "Host=localhost;Username=rental_user;Password=rental_pass;Database=rental_db"
+  }
+}
+```
 
+### 4. Run migrations
+```bash
+dotnet run --project StarterApp.Migrations
+```
 
-## Getting started
+### 5. Build and run
+```bash
+dotnet build StarterApp/StarterApp.csproj -f net9.0-android -t:Run
+```
 
-### Prerequisites
+## Running Tests
+```bash
+dotnet test StarterApp.Test/StarterApp.Test.csproj --verbosity normal
+```
 
-Before using this app, ensure you have:
+## Architecture
 
-1. **.NET SDK 8.0** or later installed
-2. **Docker** installed and running
-3. **PostgreSQL container** running (see [dev-environment tutorial](https://edinburgh-napier.github.io/SET09102/tutorials/csharp/dev-environment/))
+The app follows a three-layer architecture:
+- **Views + ViewModels** (MVVM pattern) — MAUI UI layer
+- **Services** (RentalService) — Business logic layer
+- **Repositories** (ItemRepository, RentalRepository) — Data access layer
+- **PostgreSQL** — Database via Entity Framework Core
 
-### Configuration
+## CI/CD
 
-1. Copy `StarterApp.Database/appsettings.json.template` to `StarterApp.Database/appsettings.json`
-2. Update the connection string with your PostgreSQL credentials:
-   ```json
-   {
-     "ConnectionStrings": {
-       "DevelopmentConnection": "Host=localhost;Username=student_user;Password=password123;Database=starterapp"
-     }
-   }
-   ```
-
-### Initial Setup
-
-1. Navigate to the Migrations project and create the initial migration:
-   ```bash
-   cd StarterApp.Migrations
-   dotnet ef migrations add InitialCreate
-   ```
-
-2. Apply the migration to create the database:
-   ```bash
-   dotnet ef database update
-   ```
-
-3. Build and run the application:
-   ```bash
-   cd ../StarterApp
-   dotnet build
-   dotnet run
-   ```
-
-### Tutorial
-
-For a comprehensive guide on using this app and understanding its architecture, see the
-[MAUI + MVVM + Database Tutorial](https://edinburgh-napier.github.io/SET09102/tutorials/csharp/maui-mvvm-database/).
+GitHub Actions pipeline automatically builds and runs tests on every push to main.
